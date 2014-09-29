@@ -4,12 +4,19 @@ Backbone.Marionette.MarkerView = Backbone.Marionette.ItemView.extend({
 
     constructor: function(options) {
 
-        if (!google.maps || !options.map) {
-            this.destroy();
-            return;
+        if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
+            throw new Error('MarkerView needs google maps library');
+        }
+
+        if (typeof options.map === 'undefined' || typeof options.bounds === 'undefined') {
+            throw new Error('MarkerView needs a \'options.map\' object');   
         }
 
         Backbone.Marionette.ItemView.apply(this, arguments);
+
+        if (typeof this.model === 'undefined' || this.model.get('lat') === null || this.model.get('lon') === null) {
+            throw new Error('This view needs a model with \'lat\' and \'lon\' attributes');
+        }
 
         this.marker = new google.maps.Marker({
             position: new google.maps.LatLng(this.model.get('lat'), this.model.get('lon')),
