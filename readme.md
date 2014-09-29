@@ -1,29 +1,8 @@
 #Marionette Google Maps
 
-> Marionette Google Maps helps you to create maps and markers
+> Marionette Google Maps helps you to create maps and/with markers
 
 With Marionette Google Maps helpers you can forget Google Maps API and work directly on markers collection. Each time you add or remove a marker on the collection the map will show or delete that marker and will fit his size to the current markers available.
-
-## Files tree
-
-    ├── spec
-    ├── dist
-    │    └── marionette-google-maps.js
-    ├── src
-    |    ├── lib
-    |    |    ├── views
-    |    |    |   ├── MarkerView.js
-    |    |    |   └── MapView.js
-    |    |    └── collections
-    |    |    |   └── MarkersCollection.js
-    |    |    └── models
-    |    |        └── MarkerModel.js
-    │    └── js
-    ├── .jshitrc
-    ├── bower.json
-    ├── Gruntfile.js
-    ├── package.json
-    └── readme.md
 
 
 ## Installation
@@ -32,6 +11,14 @@ Run npm install ([**node**](http://nodejs.org) and [**npm**](https://npmjs.org) 
 
     $ npm install
 
+
+**Build**
+
+    $ grunt
+
+**Test**
+
+    $ grunt test
 
 ## Usage
 

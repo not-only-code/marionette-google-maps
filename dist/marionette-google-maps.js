@@ -92,9 +92,8 @@ Backbone.Marionette.MapView = Backbone.Marionette.CollectionView.extend({
     },
     constructor: function(options) {
 
-        if (!google.maps) {
-            this.destroy();
-            return;
+        if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
+            throw new Error('MapView needs google maps library');
         }
 
         Backbone.Marionette.CollectionView.apply(this, arguments);
@@ -129,10 +128,8 @@ Backbone.Marionette.MapView = Backbone.Marionette.CollectionView.extend({
         return this.$el;
     },
     onRender: function() {
-        console.log(this.map);
         this.map.fitBounds(this.bounds);
     },
-
     refreshResize: function() {
         google.maps.event.trigger(this.map, 'resize');
         this.map.fitBounds(this.bounds);

@@ -60,7 +60,7 @@ module.exports = function (grunt) {
             }
         },
         jasmine: {
-            src: 'src/**/*.js',
+            src: 'dist/<%= pkg.name %>.js',
             options: {
                 specs: 'spec/**/*.spec.js',
                 vendor: [
@@ -81,6 +81,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jasmine');
 
-    grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'watch']);
+    grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'watch:js']);
     grunt.registerTask('test', ['jasmine', 'watch:spec']);
 };
