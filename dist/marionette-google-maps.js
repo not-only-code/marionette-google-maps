@@ -131,9 +131,6 @@ Backbone.Marionette.MapView = Backbone.Marionette.CollectionView.extend({
             style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
         };
     },
-    render: function() {
-        return this.$el;
-    },
     onRender: function() {
         this.map.fitBounds(this.bounds);
     },

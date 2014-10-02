@@ -66,6 +66,7 @@ var myMapView = new Backbone.Marionette.MapView({
     lat: 41.385064, // initialize your map in theese coords
     log: 2.173403 // initialize your map in theese coords
 });
+myMapView.render();
 ```
 It should render the map, show the markers and fit the map to the current markers. 
 
@@ -80,5 +81,6 @@ var myMapView = new Backbone.Marionette.MapView({
     el: '#my-map',
     collection: markers
 });
+myMapView.render();
 markers.fetch();
 ```

@@ -1,6 +1,6 @@
 {
 	"name": "marionette-google-maps",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Google maps helpers for MarionetteJS",
 	"homepage": "https://github.com/not-only-code/marionette-google-maps",
 	"private": false,
