@@ -64,23 +64,26 @@ var myMapView = new Backbone.Marionette.MapView({
     el: '#my-map',
     collection: markers,
     lat: 41.385064, // initialize your map in theese coords
-    log: 2.173403 // initialize your map in theese coords
+    lon: 2.173403 // initialize your map in theese coords
 });
 myMapView.render();
 ```
-It should render the map, show the markers and fit the map to the current markers. 
+It should render the map, show the markers and fit the map to the current markers. [An example here](http://jsfiddle.net/v063c40h/4/).
 
 
 No matter when you load the data, **MapView** always will react to the **MarkersCollection** changes.
 ```js
 var Markers = Backbone.Marionette.MarkersCollection.extend({
-    url: 'http://marionettegooglemaps.apiary-mock.com/markers'
+    url: 'http://private-14034-marionettegooglemaps.apiary-mock.com/markers'
 });
 var markers = new Markers();
 var myMapView = new Backbone.Marionette.MapView({
     el: '#my-map',
-    collection: markers
+    collection: markers,
+    lat: 41.385064, // initialize your map in theese coords
+    lon: 2.173403 // initialize your map in theese coords
 });
 myMapView.render();
 markers.fetch();
 ```
+[An example here](http://jsfiddle.net/v063c40h/7/).
