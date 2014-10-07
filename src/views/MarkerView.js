@@ -24,11 +24,15 @@ Backbone.Marionette.MarkerView = Backbone.Marionette.ItemView.extend({
             title: this.model.get('title')
         });
 
+        if (parseFloat(_.VERSION) >= 1.7) {
+            this.template = _.template(this.template);
+        }
+
         this.options.bounds.extend(this.marker.position);
         this.options.map.fitBounds(this.options.bounds);
 
         this.infowindow = new google.maps.InfoWindow({
-            content: _.template(this.template, this.model.toJSON())
+            content: this.parseInfoWindow()
         });
 
         // google events way
@@ -39,6 +43,14 @@ Backbone.Marionette.MarkerView = Backbone.Marionette.ItemView.extend({
     },
     render: function() {
         return this.marker;
+    },
+
+    parseInfoWindow: function() {
+        if (parseFloat(_.VERSION) >= 1.7) {
+            return this.template(this.model.toJSON());
+        } else {
+            return _.template(this.template, this.model.toJSON());
+        }
     },
 
     openWindow: function() {
